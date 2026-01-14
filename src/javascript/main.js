@@ -1,3 +1,10 @@
+
+const input = document.querySelector('#city_name');
+function limpaInput() {
+    input.value = '';
+    input.focus()
+};
+
 document.querySelector('#search').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -27,6 +34,8 @@ document.querySelector('#search').addEventListener('submit', async (e) => {
             windSpeed: json.wind.speed,
             humidity: json.main.humidity
         })
+
+         return limpaInput();
 
     } else {
         document.querySelector('#weather').classList.remove('show');
@@ -59,4 +68,5 @@ function showInfo(json) {
 function showAlert(msg) {
     document.querySelector('#alert').innerHTML = msg;
 };
+
 
